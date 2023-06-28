@@ -15,6 +15,14 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
     navigator.clipboard.writeText(post.prompt)
     setTimeout(() => setCopied(""), 3000);
   };
+  const handleProfilePage=(e)=>{
+    console.log(post.creator._id) // post creator id
+    // console.log(session.user.id) // the current client using the webpage (session) id
+    if (post.creator._id===session?.user.id){
+      return router.push('/profile')
+    }
+    return router.push(`/profile/${post.creator._id}/?name=${post.creator.username}`)
+  }
   return (
     <div className="prompt_card">
       <div className="flex justify-between items-start gap-5">
@@ -32,12 +40,15 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             width={40}
             height={40}
             className="rounded-full object-contain"
+            onClick={handleProfilePage}
           />
           <div className="flex flex-col">
-            <h3 className="font-satoshi font-semibold text-gray-900">
+            <h3 className="font-satoshi font-semibold text-gray-900"
+            onClick={handleProfilePage}>
               {post.creator.username}
             </h3>
-            <p className="font-inter text-sm text-gray-500">
+            <p className="font-inter text-sm text-gray-500"
+            onClick={handleProfilePage}>
               {post.creator.email}
             </p>
           </div>
@@ -54,13 +65,14 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             }
             width={12}
             height={12}
+            alt='copy_text'
           />
         </div>
       </div>
       <p className="my-4 font-satoshi text-sm text-gray-700">{post.prompt}</p>
       <p
         className="font-inter text-sm blue_gradient cursor-pointer"
-        onClick={() => handleClick && handleTagClick(post.tag)}
+        onClick={() => handleTagClick && handleTagClick(post.tag)}
       >
         #{post.tag}
       </p>
