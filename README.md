@@ -4,8 +4,7 @@ An AI-powered prompting tool where the user can store prompts to communicate wit
 
 This application is built entirely using Next.JS integrated with MongoDB
 
-
-
+Enjoy my app by clicking onto the live link 👉 https://prompto-one.vercel.app/
 
 
 
