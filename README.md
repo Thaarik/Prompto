@@ -2,10 +2,11 @@
 
 An AI-powered prompting tool where the user can store prompts to communicate with AI chats.
 
-This application is built entirely using Next.JS integrated with MongoDB
+This application is built entirely using Next.JS integrated with MongoDB.
 
+Sing In Authentication is given through Google Auth from GCP.
 
-
+Enjoy my app by clicking onto the live link 👉 https://prompto-one.vercel.app/
 
 
 
